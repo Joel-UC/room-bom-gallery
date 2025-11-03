@@ -1,4 +1,4 @@
-# Meeting Room Visualizer
+# Meeting Room Standards
 
 A web-based interactive gallery for visualizing meeting room configurations and their Bill of Materials (BOM). This application displays different meeting room types with detailed equipment specifications, pricing, and professional services information.
 
