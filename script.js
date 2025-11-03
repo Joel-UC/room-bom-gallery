@@ -20,7 +20,7 @@ const roomData = {
             { qty: 1, mfg: 'CHIEF', model: 'MSM1U', description: 'FUSION MICRO-ADJUSTABLE FIXED WALL MOUNT, MEDIUM', unitPrice: '$170.49', extendedPrice: '$170.49' },
             { qty: 1, mfg: 'CHIEF', model: 'CHICSMP9X12', description: 'COMPONENT STORAGE PANEL, INTERFACE', unitPrice: '$47.56', extendedPrice: '$47.56' },
             { qty: 1, mfg: 'LOGITECH', model: 'LOGTAPMSTBASELNV4', description: 'KIT, BASE MICROSOFT TEAMS RM W/TAP+ LENOVO CORE GEN 2 NO AV', unitPrice: '$2,257.68', extendedPrice: '$2,257.68' },
-            { qty: 1, mfg: 'LOGITECH', model: 'LOG960001691', description: '', unitPrice: '$644.80', extendedPrice: '$644.80' },
+            { qty: 1, mfg: 'LOGITECH', model: 'LOG960001691', description: 'CAMERA, MEETUP 2 ALL IN ONE USB CONFERENCE WITH BUILT IN AI', unitPrice: '$644.80', extendedPrice: '$644.80' },
             { qty: 1, mfg: 'MISC', model: 'MISC', description: 'MISC INSTALL MATERIALS- WIRE, CABLE, ETC', unitPrice: '$630.00', extendedPrice: '$630.00' }
         ],
         equipmentTotal: '$4,270.80',
