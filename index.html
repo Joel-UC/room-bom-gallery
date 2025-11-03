@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Room Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Modal -->
+    <div id="login-modal" class="login-modal">
+        <div class="login-modal-content">
+            <img src="uc-web-logo.webp" alt="UC Logo" class="login-logo">
+            <h2 class="login-title">Meeting Room Visualizer</h2>
+            <div class="login-form">
+                <input type="password" id="password-input" class="password-input" placeholder="Enter password" autocomplete="off">
+                <button id="login-btn" class="login-btn">Login</button>
+            </div>
+            <div class="login-footer">
+                <span class="login-prepared-for">Prepared for</span>
+                <img src="Hyundai_AutoEver_logo.svg" alt="Hyundai AutoEver Logo" class="login-hyundai-logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <img src="uc-web-logo.webp" alt="UC Logo" class="uc-logo">
+                <h1 class="header-title">Meeting Room Visualizer</h1>
+            </div>
+            <div class="header-right">
+                <span class="prepared-for">Prepared for</span>
+                <img src="Hyundai_AutoEver_logo.svg" alt="Hyundai AutoEver Logo" class="hyundai-logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Thumbnail Gallery -->
+        <section class="thumbnail-section">
+            <div class="thumbnails" id="thumbnails"></div>
+        </section>
+
+        <!-- Room Details -->
+        <section class="details-section">
+            <div class="details-wrapper">
+                <div class="room-display">
+                    <h2 id="room-name" class="room-name"></h2>
+                    <div class="image-and-totals">
+                        <div class="image-container">
+                            <img id="room-image" src="" alt="Room Image" class="room-image">
+                        </div>
+                        <div class="totals-section" id="totals-section"></div>
+                    </div>
+                    <div class="info-panel">
+                        <div class="table-container">
+                            <table id="room-table" class="room-table">
+                                <thead>
+                                    <tr>
+                                        <th>QTY</th>
+                                        <th>Manufacturer</th>
+                                        <th>Model</th>
+                                        <th>Description</th>
+                                        <th>Unit Price</th>
+                                        <th>Extended Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body"></tbody>
+                            </table>
+                        </div>
+                        <div class="mobile-items-list" id="mobile-items-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h3>Sales Representative</h3>
+                <p class="contact-name">Ozzie Alvarez</p>
+                <a href="mailto:oalvarez@unifiedcommunications.com" class="contact-email">oalvarez@unifiedcommunications.com</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <h3>Design Engineer</h3>
+                <p class="contact-name">Joseph Living</p>
+                <a href="mailto:jliving@unifiedcommunications.com" class="contact-email">jliving@unifiedcommunications.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
