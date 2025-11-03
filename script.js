@@ -294,3 +294,129 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Print functionality - generate all rooms for printing
+function generateAllRoomsForPrint() {
+    const detailsSection = document.querySelector('.details-section');
+    const detailsWrapper = document.querySelector('.details-wrapper');
+    
+    // Clear existing content
+    detailsWrapper.innerHTML = '';
+    
+    // Generate all rooms
+    roomNames.forEach((roomName, index) => {
+        const room = roomData[roomName];
+        const roomPage = document.createElement('div');
+        roomPage.className = 'room-page';
+        
+        const formatPrice = (price) => {
+            if (price.startsWith('$')) {
+                const amount = price.substring(1);
+                return `<span class="dollar-sign">$</span>${amount}`;
+            }
+            return price;
+        };
+        
+        // Create room HTML - header, then room name
+        let roomHTML = `
+            <header class="header print-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <img src="uc-web-logo.webp" alt="UC Logo" class="uc-logo">
+                        <h1 class="header-title">Meeting Room Standards</h1>
+                    </div>
+                    <div class="header-right">
+                        <span class="prepared-for">Prepared for</span>
+                        <img src="Hyundai_AutoEver_logo.svg" alt="Hyundai AutoEver Logo" class="hyundai-logo">
+                    </div>
+                </div>
+            </header>
+            <h2 class="room-name">${formatRoomName(roomName)}</h2>
+            <div class="room-display">
+                <div class="image-and-totals">
+                    <div class="image-container">
+                        <img src="${room.image}" alt="${roomName}" class="room-image">
+                    </div>
+                    <div class="totals-section">
+                        <div class="total-row">
+                            <span class="total-label">Equipment Total</span>
+                            <span class="total-value">${formatPrice(room.equipmentTotal)}</span>
+                        </div>
+                        <div class="total-row">
+                            <span class="total-label">Professional Services</span>
+                            <span class="total-value">${formatPrice(room.servicesTotal)}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-panel">
+                    <div class="table-container">
+                        <table class="room-table">
+                            <thead>
+                                <tr>
+                                    <th>QTY</th>
+                                    <th>Manufacturer</th>
+                                    <th>Model</th>
+                                    <th>Description</th>
+                                    <th>Unit Price</th>
+                                    <th>Extended Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+        `;
+        
+        // Add items
+        room.items.forEach(item => {
+            roomHTML += `
+                <tr>
+                    <td>${item.qty}</td>
+                    <td>${item.mfg}</td>
+                    <td>${item.model}</td>
+                    <td>${item.description || '-'}</td>
+                    <td>${item.unitPrice}</td>
+                    <td>${item.extendedPrice}</td>
+                </tr>
+            `;
+        });
+        
+        roomHTML += `
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        roomPage.innerHTML = roomHTML;
+        detailsWrapper.appendChild(roomPage);
+    });
+}
+
+// Handle print events
+window.addEventListener('beforeprint', () => {
+    generateAllRoomsForPrint();
+    
+    // Add header to footer for last page
+    const footer = document.querySelector('.footer');
+    if (footer && !footer.querySelector('.print-header')) {
+        const headerHTML = `
+            <header class="header print-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <img src="uc-web-logo.webp" alt="UC Logo" class="uc-logo">
+                        <h1 class="header-title">Meeting Room Standards</h1>
+                    </div>
+                    <div class="header-right">
+                        <span class="prepared-for">Prepared for</span>
+                        <img src="Hyundai_AutoEver_logo.svg" alt="Hyundai AutoEver Logo" class="hyundai-logo">
+                    </div>
+                </div>
+            </header>
+        `;
+        footer.insertAdjacentHTML('afterbegin', headerHTML);
+    }
+});
+
+window.addEventListener('afterprint', () => {
+    // Restore the current room view after printing
+    displayRoom(currentRoomIndex);
+});
+

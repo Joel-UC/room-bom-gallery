@@ -772,3 +772,237 @@ body.modal-open > *:not(.login-modal) {
         display: block;
     }
 }
+
+/* Print Styles */
+@media print {
+    /* Hide login modal, thumbnails, and original header */
+    .login-modal,
+    .thumbnail-section,
+    .header:not(.print-header) {
+        display: none !important;
+    }
+
+    /* Reset body for print */
+    body {
+        background: white;
+        color: black;
+    }
+
+    /* Header for print - appears on each page */
+    @page {
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    .header.print-header {
+        position: static;
+        background: white;
+        box-shadow: none;
+        border-bottom: 1px solid #ddd;
+        padding: 0.75rem 1rem;
+        margin: 0;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        width: 100%;
+    }
+
+    .header.print-header .header-content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-content {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .header-title {
+        font-size: 1.25rem;
+    }
+
+    .uc-logo {
+        max-width: 150px;
+    }
+
+    .hyundai-logo {
+        height: 40px;
+    }
+
+    /* Main content spacing for header */
+    .main-content {
+        margin-top: 0;
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    /* Each room on its own page */
+    .details-section {
+        page-break-inside: auto;
+    }
+
+    .details-wrapper {
+        box-shadow: none;
+        border-bottom: 1px solid #ddd;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        padding: 0;
+        page-break-inside: auto;
+    }
+
+    .room-page {
+        page-break-before: always;
+        page-break-inside: avoid;
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+    }
+
+    .room-page:first-of-type {
+        page-break-before: auto;
+    }
+
+    .room-page .print-header {
+        margin-bottom: 1rem;
+    }
+
+    .room-page .room-name {
+        font-size: 1.75rem;
+        margin: 0 0 1.5rem 0;
+        padding: 0 1.5rem;
+        display: block;
+        color: #212529;
+        font-weight: 700;
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+
+    .room-display {
+        gap: 1.5rem;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+    
+    .room-page .room-display {
+        page-break-inside: avoid;
+    }
+
+    .image-and-totals {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+
+    .room-image {
+        max-height: 400px;
+    }
+
+    /* Table styling for print */
+    .room-table {
+        font-size: 0.8rem;
+        page-break-inside: auto;
+    }
+
+    .room-table thead {
+        display: table-header-group;
+    }
+
+    .room-table thead tr {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+
+    .room-table tbody tr {
+        page-break-inside: avoid;
+    }
+
+    .room-table th,
+    .room-table td {
+        padding: 0.5rem;
+    }
+
+    .totals-section {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        border-left: none;
+        border-right: none;
+        padding: 1rem;
+    }
+
+    .total-value {
+        font-size: 1.25rem;
+    }
+
+    /* Hide mobile items list in print */
+    .mobile-items-list {
+        display: none !important;
+    }
+
+    /* Footer/Contact info on last page */
+    .footer {
+        page-break-before: always;
+        background: white;
+        color: black;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .footer .header.print-header {
+        margin-bottom: 1rem;
+    }
+
+    .contact-cards {
+        max-width: 100%;
+        page-break-inside: avoid;
+        margin-top: 4rem;
+        padding: 0;
+    }
+
+    .contact-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        padding: 2.5rem;
+    }
+
+    .contact-card .contact-icon {
+        display: flex !important;
+        width: 48px !important;
+        height: 48px !important;
+        background: #667eea !important;
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        border-radius: 50% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+        color: white !important;
+    }
+    
+    .contact-card .contact-icon svg {
+        display: block !important;
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .contact-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .contact-email {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* Remove animations and transitions */
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Ensure proper page breaks */
+    .info-panel {
+        page-break-inside: auto;
+    }
+}
